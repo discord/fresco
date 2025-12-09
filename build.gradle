@@ -44,6 +44,18 @@ subprojects {
         mavenCentral()
     }
 
+    // Configure additional maven publishing repository
+    plugins.withId("com.vanniktech.maven.publish") {
+        publishing {
+            repositories {
+                maven {
+                    name = "discord"
+                    url = "gcs://discord-maven"
+                }
+            }
+        }
+    }
+
     // FIXME: This picks up non-Java files by default, failing to parse them.
     // Need to configure this more carefully.
     tasks.withType(Javadoc).all {
