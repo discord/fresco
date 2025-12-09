@@ -11,7 +11,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 dependencies {

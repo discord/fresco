@@ -15,7 +15,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 android {
