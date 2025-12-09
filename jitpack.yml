@@ -1,0 +1,13 @@
+jdk:
+  - openjdk17
+
+before_install:
+  # Download and install NDK directly
+  - wget -q https://dl.google.com/android/repository/android-ndk-r27b-linux.zip -O /tmp/ndk.zip
+  - unzip -q /tmp/ndk.zip -d $ANDROID_HOME
+  - mkdir -p $ANDROID_HOME/ndk
+  - mv $ANDROID_HOME/android-ndk-r27b $ANDROID_HOME/ndk/27.1.12297006
+  - echo "ndk.dir=$ANDROID_HOME/ndk/27.1.12297006" >> local.properties
+
+install:
+  - ./gradlew publishToMavenLocal -x test -x lint --no-daemon
